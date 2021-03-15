@@ -130,3 +130,6 @@ dmypy.json
 
 # JetBrains IDE PyCharm Community
 .idea/
+
+# macOS file system or hackintosh file system
+.DS_Store
