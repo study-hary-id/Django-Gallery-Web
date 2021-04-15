@@ -42,7 +42,7 @@
   >
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
   <header>
     <div class="collapse bg-dark" id="navbarHeader">
       <div class="container">
@@ -59,13 +59,13 @@
             <h4 class="text-white">Contact</h4>
             <ul class="list-unstyled">
               <li>
-                <a href="https://www.facebook.com" class="text-white text-decoration-none">
+                <a href="https://www.facebook.com" target="_blank" class="text-white text-decoration-none">
                   <i class="fab fa-facebook-square"></i>
                   <span class="text-decoration-underline">Facebook</span>
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com" class="text-white text-decoration-none">
+                <a href="https://www.instagram.com" target="_blank" class="text-white text-decoration-none">
                   <i class="fab fa-instagram-square"></i>
                   <span class="text-decoration-underline">Instagram</span>
                 </a>
@@ -108,9 +108,6 @@
             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
             laboris nisi ut aliquip ex ea commodo consequat.
           </p>
-          <p>
-            <a href="{% url 'add_post' %}" class="btn btn-primary my-2">Upload an Image</a>
-          </p>
         </div>
       </div>
     </section>
@@ -119,38 +116,104 @@
       <div class="container">
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% if object_list %}
+
           {% for post in object_list %}
           <div class="col">
             <div class="card shadow-sm">
               <img
                 class="bd-placeholder-img card-img-top"
                 src="{{ post.image.url }}"
+                width="100%" height="225"
                 alt="{{ post.title }}"
-                width="100%" height="225">
+              >
 
               <div class="card-body">
                 <p class="card-text">{{ post.title }}</p>
                 <!-- TODO: Additional feature in Django Gallery -->
-                <!--                                <div class="d-flex justify-content-between align-items-center">-->
-                <!--                                    <div class="btn-group">-->
-                <!--                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
-                <!--                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
-                <!--                                    </div>-->
-                <!--                                    <small class="text-muted">9 mins</small>-->
-                <!--                                </div>-->
+<!--                <div class="d-flex justify-content-between align-items-center">-->
+<!--                  <div class="btn-group">-->
+<!--                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+<!--                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+<!--                  </div>-->
+<!--                  <small class="text-muted">9 mins</small>-->
+<!--                </div>-->
               </div>
             </div>
           </div>
           {% endfor %}
+
+        {% else %}
+
+          <div class="col">
+            <div class="card shadow-sm">
+              <svg
+                class="bd-placeholder-img card-img-top" width="100%" height="225"
+                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c"/>
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+              </svg>
+              <div class="card-body">
+                <p class="card-text text-center">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <svg
+                class="bd-placeholder-img card-img-top" width="100%" height="225"
+                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c"/>
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+              </svg>
+              <div class="card-body">
+                <p class="card-text text-center">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <svg
+                class="bd-placeholder-img card-img-top" width="100%" height="225"
+                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c"/>
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+              </svg>
+              <div class="card-body">
+                <p class="card-text text-center">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        {% endif %}
         </div>
       </div>
     </div>
   </main>
 
-  <footer class="text-muted py-5">
+  <footer class="footer mt-auto py-3 bg-dark">
     <div class="container">
-      <p class="float-end mb-1">
-        <a href="#">Back to top</a>
+      <p class="float-end mb-1"><a href="#">Back to top</a></p>
+      <p class="mb-1 text-white">
+        &copy; 2021 Bootstrap, Django Gallery, by
+        <a href="https://github.com/study-hary-id" target="_blank" class="text-white">
+          study-hary-id
+        </a>
       </p>
     </div>
   </footer>
